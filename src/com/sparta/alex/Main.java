@@ -5,6 +5,8 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(new BubbleSort().sort(new int[]{5, 1, 4, 2, 8, 10, 2, 8})));
+        System.out.println(Arrays.toString(new BubbleSort().sortArray(new int[]{2,4,5,12,2,323,56,3,2,1,5,66,7,43,2,1,45,6})));
+        System.out.println(Arrays.toString(new BubbleSort().sortArray(new int[]{1,2,3,4,5})));
+        System.out.println(Arrays.toString(new BubbleSort().sortArray(new int[]{})));
     }
 }
