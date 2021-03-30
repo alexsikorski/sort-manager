@@ -1,6 +1,9 @@
-package com.sparta.alex;
+package com.sparta.alex.sort;
 
-public class BubbleSort implements Sorter {
+import com.sparta.alex.sortinterface.BubbleSortInterface;
+import com.sparta.alex.util.Printer;
+
+public class BubbleSort implements BubbleSortInterface {
 
     @Override
     public int[] sortArray(int[] array) {
