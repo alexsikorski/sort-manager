@@ -21,6 +21,12 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e);
         }
+        // Null test
+        try {
+            printer.print((Arrays.toString(new BubbleSort().sortArray(null))));
+        } catch (Exception e) {
+            System.out.println(e);
+        }
 
 
         // Merge Sort

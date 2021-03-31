@@ -12,11 +12,13 @@ public class BubbleSort implements BubbleSortInterface {
 
     @Override
     public int[] sortArray(int[] array) throws EmptyArrayException {
-        if (array.length == 0) {
+        if (array == null) {
+            logger.error("NullPointerException: Array is null!");
+            throw new NullPointerException("Array is null!");
+        } else if (array.length == 0) {
             logger.error("EmptyArrayException: Empty array!");
             throw new EmptyArrayException("Empty array!");
-        }
-        else {
+        } else {
             for (int j = 0; j < array.length - 1; j++) {
                 boolean hasSwapped = false;
                 for (int i = 0; i < array.length - 1 - j; i++) {

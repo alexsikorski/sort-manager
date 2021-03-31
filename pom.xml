@@ -8,14 +8,13 @@
   <artifactId>sort-manager</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>test-maven</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <name>sort-manager</name>
+  <url>https://github.com/alexsikorski/sort-manager</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>1.7</maven.compiler.source>
-    <maven.compiler.target>1.7</maven.compiler.target>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
   </properties>
 
   <dependencies>
@@ -32,6 +31,15 @@
       <artifactId>log4j-api</artifactId>
       <version>2.14.1</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.8.0-M1</version>
+      <scope>test</scope>
+    </dependency>
+
 
   </dependencies>
 
