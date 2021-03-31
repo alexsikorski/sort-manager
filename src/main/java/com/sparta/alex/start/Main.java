@@ -1,8 +1,8 @@
 package com.sparta.alex.start;
 
+import com.sparta.alex.algorithms.BubbleSort;
+import com.sparta.alex.algorithms.MergeSort;
 import com.sparta.alex.exceptions.EmptyArrayException;
-import com.sparta.alex.sort.BubbleSort;
-import com.sparta.alex.sort.MergeSort;
 import com.sparta.alex.util.Printer;
 
 import java.util.Arrays;
@@ -28,13 +28,7 @@ public class Main {
             System.out.println(e);
         }
 
-
         // Merge Sort
-        MergeSort mergeSort = new MergeSort();
-
-        int[] testArray = {5, 1, 6, 2, 3, 4};
-
-        mergeSort.sortArray(testArray, testArray.length);
-        System.out.println(Arrays.toString(testArray));
+        System.out.println(Arrays.toString(new MergeSort().sortArray(new int[]{5, 1, 6, 2, 3, 4})));
     }
 }

@@ -1,7 +1,7 @@
 package com.sparta.alex;
 
+import com.sparta.alex.algorithms.BubbleSort;
 import com.sparta.alex.exceptions.EmptyArrayException;
-import com.sparta.alex.sort.BubbleSort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -12,7 +12,7 @@ public class BubbleSortTests {
     private BubbleSort bubbleSort = null;
 
     @BeforeEach
-    void setup(){
+    void setup() {
         bubbleSort = new BubbleSort();
     }
 
@@ -22,13 +22,13 @@ public class BubbleSortTests {
     }
 
     @Test
-    void nullTest(){
+    void nullTest() {
         Exception exception = assertThrows(NullPointerException.class, () -> bubbleSort.sortArray(null));
         assertEquals("Array is null!", exception.getMessage());
     }
 
     @Test
-    void emptyArrayTest(){
+    void emptyArrayTest() {
         Exception exception = assertThrows(EmptyArrayException.class, () -> bubbleSort.sortArray(new int[]{}));
         assertEquals("Empty array!", exception.getMessage());
     }

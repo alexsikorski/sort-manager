@@ -1,11 +1,10 @@
-package com.sparta.alex.sort;
+package com.sparta.alex.algorithms;
 
-import com.sparta.alex.sortinterface.MergeSortInterface;
+import com.sparta.alex.interfaces.MergeSortInterface;
 
 public class MergeSort implements MergeSortInterface {
 
-    public static void merge(
-            int[] array, int[] leftArray, int[] rightArray, int leftPos, int rightPos) {
+    public static void merge(int[] array, int[] leftArray, int[] rightArray, int leftPos, int rightPos) {
 
         int i = 0, j = 0, k = 0;
 
@@ -25,7 +24,12 @@ public class MergeSort implements MergeSortInterface {
     }
 
     @Override
-    public void sortArray(int[] originalArray, int arrayLength) {
+    public int[] sortArray(int[] arrayToSort) {
+        splitThenMergeArray(arrayToSort, arrayToSort.length);
+        return arrayToSort;
+    }
+
+    public void splitThenMergeArray(int[] originalArray, int arrayLength) {
         // Return recursive method when array gets broken down to single numbers
         if (arrayLength < 2) {
             return;
@@ -41,8 +45,8 @@ public class MergeSort implements MergeSortInterface {
         for (int i = midPoint; i < arrayLength; i++) {
             rightArray[i - midPoint] = originalArray[i];
         }
-        sortArray(leftArray, midPoint);
-        sortArray(rightArray, arrayLength - midPoint);
+        splitThenMergeArray(leftArray, midPoint);
+        splitThenMergeArray(rightArray, arrayLength - midPoint);
 
         merge(originalArray, leftArray, rightArray, midPoint, arrayLength - midPoint);
     }

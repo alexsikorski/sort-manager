@@ -4,8 +4,4 @@ public class Printer {
     public void print(Object obj) {
         System.out.println(obj);
     }
-
-    public void printArrayEmpty() {
-        System.out.println("Array is empty!");
-    }
 }

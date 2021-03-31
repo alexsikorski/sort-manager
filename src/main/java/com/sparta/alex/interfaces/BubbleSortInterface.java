@@ -1,4 +1,4 @@
-package com.sparta.alex.sortinterface;
+package com.sparta.alex.interfaces;
 
 import com.sparta.alex.exceptions.EmptyArrayException;
 

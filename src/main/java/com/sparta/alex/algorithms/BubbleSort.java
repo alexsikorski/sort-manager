@@ -1,7 +1,7 @@
-package com.sparta.alex.sort;
+package com.sparta.alex.algorithms;
 
 import com.sparta.alex.exceptions.EmptyArrayException;
-import com.sparta.alex.sortinterface.BubbleSortInterface;
+import com.sparta.alex.interfaces.BubbleSortInterface;
 import com.sparta.alex.start.Main;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
