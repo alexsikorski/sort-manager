@@ -1,5 +1,6 @@
 package com.sparta.alex.start;
 
+import com.sparta.alex.exceptions.ArrayTooSmallException;
 import com.sparta.alex.exceptions.EmptyArrayException;
 import com.sparta.alex.factory.SorterFactory;
 import com.sparta.alex.factory.SorterTypes;
@@ -10,7 +11,7 @@ import java.util.Arrays;
 
 public class Main {
 
-    public static void main(String[] args) throws EmptyArrayException {
+    public static void main(String[] args) throws EmptyArrayException, ArrayTooSmallException {
 
         Printer printer = new Printer();
         SorterFactory sortFactory = new SorterFactory();

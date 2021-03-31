@@ -1,5 +1,6 @@
 package com.sparta.alex.algorithms;
 
+import com.sparta.alex.exceptions.ArrayTooSmallException;
 import com.sparta.alex.exceptions.EmptyArrayException;
 import com.sparta.alex.interfaces.Sorter;
 import com.sparta.alex.start.Main;
@@ -10,7 +11,7 @@ public class MergeSort implements Sorter {
 
     public static final Logger logger = LogManager.getLogger(Main.class);
 
-    public static void merge(int[] array, int[] leftArray, int[] rightArray, int leftPos, int rightPos) { // CALLED IN splitThenMerge
+    public static void mergeArray(int[] array, int[] leftArray, int[] rightArray, int leftPos, int rightPos) { // CALLED IN splitThenMerge
         // FIRST as splitThenMergeArray [1] [5] had been called first, return statement takes us to merge with these values
         // originalArray={1, 5, 10, 2}, leftArray=[1], rightArray=[5], leftPos=0/2=0, rightPos=1-0=1
         int i = 0, j = 0, z = 0;
@@ -36,13 +37,16 @@ public class MergeSort implements Sorter {
     }
 
     @Override
-    public int[] sortArray(int[] array) throws EmptyArrayException {
+    public int[] sortArray(int[] array) throws EmptyArrayException, ArrayTooSmallException {
         if (array == null) {
             logger.error("NullPointerException: Array is null!");
             throw new NullPointerException("Array is null!");
         } else if (array.length == 0) {
             logger.error("EmptyArrayException: Empty array!");
             throw new EmptyArrayException("Empty array!");
+        } else if (array.length == 1) {
+            logger.error("ArrayTooSmallException: Array must be larger than one!");
+            throw new ArrayTooSmallException("Array must be larger than one!");
         } else {
             splitThenMergeArray(array, array.length);
             return array;
@@ -69,6 +73,6 @@ public class MergeSort implements Sorter {
         splitThenMergeArray(leftArray, midPoint); // splits left array again (recursive), as length is 2 it will split to [1] [5]
         splitThenMergeArray(rightArray, arrayLength - midPoint); // and [10] [2]
         // when having [1] [5] and [10] [2] merge methods gets called as breaks recursion through return
-        merge(originalArray, leftArray, rightArray, midPoint, arrayLength - midPoint); // GOTO Merge()
+        mergeArray(originalArray, leftArray, rightArray, midPoint, arrayLength - midPoint); // GOTO Merge()
     }
 }
