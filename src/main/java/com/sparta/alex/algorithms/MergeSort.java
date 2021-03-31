@@ -1,10 +1,14 @@
 package com.sparta.alex.algorithms;
 
-import com.sparta.alex.interfaces.MergeSortInterface;
+import com.sparta.alex.exceptions.EmptyArrayException;
+import com.sparta.alex.interfaces.Sorter;
+import com.sparta.alex.start.Main;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.util.Arrays;
+public class MergeSort implements Sorter {
 
-public class MergeSort implements MergeSortInterface {
+    public static final Logger logger = LogManager.getLogger(Main.class);
 
     public static void merge(int[] array, int[] leftArray, int[] rightArray, int leftPos, int rightPos) { // CALLED IN splitThenMerge
         // FIRST as splitThenMergeArray [1] [5] had been called first, return statement takes us to merge with these values
@@ -20,7 +24,6 @@ public class MergeSort implements MergeSortInterface {
             }
         }
         // FIRST while 1 > 0 ...so true
-        System.out.println(leftPos+ " " +Arrays.toString(leftArray) + " " + rightPos + Arrays.toString(rightArray));
         while (leftPos > i) {
             array[z++] = leftArray[i++]; // FIRST array[0] = leftArray[0], so [1, 5]
         }
@@ -33,9 +36,17 @@ public class MergeSort implements MergeSortInterface {
     }
 
     @Override
-    public int[] sortArray(int[] arrayToSort) {
-        splitThenMergeArray(arrayToSort, arrayToSort.length);
-        return arrayToSort;
+    public int[] sortArray(int[] array) throws EmptyArrayException {
+        if (array == null) {
+            logger.error("NullPointerException: Array is null!");
+            throw new NullPointerException("Array is null!");
+        } else if (array.length == 0) {
+            logger.error("EmptyArrayException: Empty array!");
+            throw new EmptyArrayException("Empty array!");
+        } else {
+            splitThenMergeArray(array, array.length);
+            return array;
+        }
     }
 
     public void splitThenMergeArray(int[] originalArray, int arrayLength) { // START

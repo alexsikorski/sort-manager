@@ -2,6 +2,6 @@ package com.sparta.alex.interfaces;
 
 import com.sparta.alex.exceptions.EmptyArrayException;
 
-public interface BubbleSortInterface {
+public interface Sorter {
     int[] sortArray(int[] arrayToSort) throws EmptyArrayException;
 }
