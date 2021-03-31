@@ -1,8 +1,8 @@
-package com.sparta.alex.interfaces;
+package com.sparta.alex.binarytree;
 
 import com.sparta.alex.exceptions.ChildNotFoundException;
 
-public interface BinarySorter extends Sorter {
+public interface BinaryTree {
     int getRootElement();
 
     int getNumberOfElements();

@@ -1,13 +1,12 @@
-package com.sparta.alex.algorithms;
+package com.sparta.alex.sorters;
 
 import com.sparta.alex.exceptions.ArrayTooSmallException;
 import com.sparta.alex.exceptions.EmptyArrayException;
-import com.sparta.alex.interfaces.Sorter;
 import com.sparta.alex.start.Main;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class MergeSort implements Sorter {
+public class MergeSorter implements Sorter {
 
     public static final Logger logger = LogManager.getLogger(Main.class);
 
