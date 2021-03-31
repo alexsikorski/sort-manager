@@ -2,13 +2,19 @@ package com.sparta.alex;
 
 import com.sparta.alex.exceptions.EmptyArrayException;
 import com.sparta.alex.sort.BubbleSort;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BubbleSortTests {
 
-    private final BubbleSort bubbleSort = new BubbleSort();
+    private BubbleSort bubbleSort = null;
+
+    @BeforeEach
+    void setup(){
+        bubbleSort = new BubbleSort();
+    }
 
     @Test
     void sortTest() throws EmptyArrayException {
