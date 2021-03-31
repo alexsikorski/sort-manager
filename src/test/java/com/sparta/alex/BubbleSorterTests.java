@@ -35,7 +35,7 @@ public class BubbleSorterTests {
     }
 
     @Test
-    void shortArrayTest(){
+    void shortArrayTest() {
         Exception exception = assertThrows(ArrayTooSmallException.class, () -> bubbleSorter.sortArray(new int[]{1}));
         assertEquals("Array must be larger than one!", exception.getMessage());
     }

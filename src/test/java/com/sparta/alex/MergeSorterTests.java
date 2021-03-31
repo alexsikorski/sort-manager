@@ -2,7 +2,6 @@ package com.sparta.alex;
 
 import com.sparta.alex.exceptions.ArrayTooSmallException;
 import com.sparta.alex.exceptions.EmptyArrayException;
-import com.sparta.alex.sorters.BubbleSorter;
 import com.sparta.alex.sorters.MergeSorter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
