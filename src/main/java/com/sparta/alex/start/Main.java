@@ -29,6 +29,6 @@ public class Main {
         }
 
         // Merge Sort
-        System.out.println(Arrays.toString(new MergeSort().sortArray(new int[]{5, 1, 6, 2, 3, 4})));
+        System.out.println(Arrays.toString(new MergeSort().sortArray(new int[]{1, 5, 10, 2})));
     }
 }

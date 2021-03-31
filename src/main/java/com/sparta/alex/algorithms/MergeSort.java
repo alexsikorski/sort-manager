@@ -2,24 +2,33 @@ package com.sparta.alex.algorithms;
 
 import com.sparta.alex.interfaces.MergeSortInterface;
 
+import java.util.Arrays;
+
 public class MergeSort implements MergeSortInterface {
 
-    public static void merge(int[] array, int[] leftArray, int[] rightArray, int leftPos, int rightPos) {
+    public static void merge(int[] array, int[] leftArray, int[] rightArray, int leftPos, int rightPos) { // CALLED IN splitThenMerge
+        // FIRST as splitThenMergeArray [1] [5] had been called first, return statement takes us to merge with these values
+        // originalArray={1, 5, 10, 2}, leftArray=[1], rightArray=[5], leftPos=0/2=0, rightPos=1-0=1
+        int i = 0, j = 0, z = 0;
 
-        int i = 0, j = 0, k = 0;
-
-        while (i < leftPos && j < rightPos) {
-            if (leftArray[i] <= rightArray[j]) {
-                array[k++] = leftArray[i++];
+        // FIRST i = 0, while 0 > 0 AND 1 > 0  ...so not true first merge
+        while (leftPos > i && rightPos > j) {
+            if (rightArray[j] >= leftArray[i]) {
+                array[z++] = leftArray[i++];
             } else {
-                array[k++] = rightArray[j++];
+                array[z++] = rightArray[j++];
             }
         }
-        while (i < leftPos) {
-            array[k++] = leftArray[i++];
+        // FIRST while 1 > 0 ...so true
+        System.out.println(leftPos+ " " +Arrays.toString(leftArray) + " " + rightPos + Arrays.toString(rightArray));
+        while (leftPos > i) {
+            array[z++] = leftArray[i++]; // FIRST array[0] = leftArray[0], so [1, 5]
         }
-        while (j < rightPos) {
-            array[k++] = rightArray[j++];
+        // FIRST i = 1, j = 0, z = 1
+
+        // FIRST while 1 > 0 ...so true
+        while (rightPos > j) {
+            array[z++] = rightArray[j++]; // FIRST array[1] = rightArray[0] so [1, 5]
         }
     }
 
@@ -29,25 +38,26 @@ public class MergeSort implements MergeSortInterface {
         return arrayToSort;
     }
 
-    public void splitThenMergeArray(int[] originalArray, int arrayLength) {
-        // Return recursive method when array gets broken down to single numbers
-        if (arrayLength < 2) {
+    public void splitThenMergeArray(int[] originalArray, int arrayLength) { // START
+        // recursive method when array gets broken down to single numbers
+        // example array {1, 5, 10, 2}
+        if (arrayLength < 2) { // array length 4 so no return 1st run
             return;
         }
-        int midPoint = arrayLength / 2;
-        int[] leftArray = new int[midPoint];
-        int[] rightArray = new int[arrayLength - midPoint];
+        int midPoint = arrayLength / 2; // midpoint = 2
+        int[] leftArray = new int[midPoint]; // left array instantiated with 2 [0, 0]
+        int[] rightArray = new int[arrayLength - midPoint];  // right array instantiated with 4 - 2 = 2, so [0, 0]
 
         // Copying arrays in left/right array
-        for (int i = 0; i < midPoint; i++) {
+        for (int i = 0; i < midPoint; i++) { // iterates from index 0 to 1, copies array content so [1, 5]
             leftArray[i] = originalArray[i];
         }
-        for (int i = midPoint; i < arrayLength; i++) {
+        for (int i = midPoint; i < arrayLength; i++) { // iterates from index 2 to 3, copies array content so [10, 2]
             rightArray[i - midPoint] = originalArray[i];
         }
-        splitThenMergeArray(leftArray, midPoint);
-        splitThenMergeArray(rightArray, arrayLength - midPoint);
-
-        merge(originalArray, leftArray, rightArray, midPoint, arrayLength - midPoint);
+        splitThenMergeArray(leftArray, midPoint); // splits left array again (recursive), as length is 2 it will split to [1] [5]
+        splitThenMergeArray(rightArray, arrayLength - midPoint); // and [10] [2]
+        // when having [1] [5] and [10] [2] merge methods gets called as breaks recursion through return
+        merge(originalArray, leftArray, rightArray, midPoint, arrayLength - midPoint); // GOTO Merge()
     }
 }
