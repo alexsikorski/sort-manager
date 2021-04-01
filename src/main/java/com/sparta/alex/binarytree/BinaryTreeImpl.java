@@ -3,7 +3,7 @@ package com.sparta.alex.binarytree;
 import com.sparta.alex.exceptions.ChildNotFoundException;
 
 public class BinaryTreeImpl implements BinaryTree {
-    private Node rootNode = null;
+    Node rootNode = null;
 
     @Override
     public int getRootElement() {
@@ -56,20 +56,20 @@ public class BinaryTreeImpl implements BinaryTree {
 
     // recursive methods
 
-    public Node addElementRecursive(Node currentNode, int element) {
+    public Node addElementRecursive(Node currentNode, int value) {
         // recursive method
         if (currentNode == null) {
-            // if current node doesnt exist, make first element root node
-            return new Node(element);
+            // if current node doesnt exist, make first value root node
+            return new Node(value);
         }
         // start with left
-        if (currentNode.value > element) {
+        if (value < currentNode.value) {
             // if current node number > number from array
-            currentNode.left = addElementRecursive(currentNode.left, element);
+            currentNode.left = addElementRecursive(currentNode.left, value);
             // set left (child) node
-        } else if (currentNode.value < element) {
-            // if current value < element
-            currentNode.right = addElementRecursive(currentNode.right, element);
+        } else if (value > currentNode.value) {
+            // if current value < value
+            currentNode.right = addElementRecursive(currentNode.right, value);
             // set right (child) node
         } else {
             // node (number) already exists, no duplicates allowed
@@ -87,11 +87,23 @@ public class BinaryTreeImpl implements BinaryTree {
             // if current nodes value is value searching for
             return true;
         }
-        // return currentNode.value > value ? findElementRecursive(currentNode.right, value) : findElementRecursive(currentNode.left, value);
-        // ternary operator, equiv to
-        if (currentNode.value > value) {
-            return findElementRecursive(currentNode.right, value);
+        // ternary operator or if statement (example provided for self teaching reasons)
+        return currentNode.value > value ? findElementRecursive(currentNode.left, value) : findElementRecursive(currentNode.right, value);
+//        if (currentNode.value > value){
+//           return findElementRecursive(currentNode.left, value);
+//        }
+//        return findElementRecursive(currentNode.right, value);
+    }
+
+    public class Node {
+        public int value;
+        public Node left;
+        public Node right;
+
+        public Node(int value) {
+            this.value = value;
+            left = null;
+            right = null;
         }
-        return findElementRecursive(currentNode.left, value);
     }
 }

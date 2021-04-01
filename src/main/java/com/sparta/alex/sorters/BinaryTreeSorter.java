@@ -42,6 +42,4 @@ public class BinaryTreeSorter implements Sorter {
         }
         return new int[0];
     }
-
-
 }
