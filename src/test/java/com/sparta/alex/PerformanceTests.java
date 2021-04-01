@@ -2,8 +2,9 @@ package com.sparta.alex;
 
 import com.sparta.alex.exceptions.ArrayTooSmallException;
 import com.sparta.alex.exceptions.EmptyArrayException;
-import com.sparta.alex.sorters.BubbleSorter;
-import com.sparta.alex.sorters.MergeSorter;
+import com.sparta.alex.factory.SorterFactory;
+import com.sparta.alex.factory.SorterTypes;
+import com.sparta.alex.sorters.Sorter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -14,8 +15,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class PerformanceTests {
 
-    private BubbleSorter bubbleSorter = null;
-    private MergeSorter mergeSorter = null;
+    private Sorter bubbleSorter = null;
+    private Sorter mergeSorter = null;
     private int[] smallSample = null;
     private int[] mediumSample = null;
     private int[] largeSample = null;
@@ -23,8 +24,9 @@ public class PerformanceTests {
 
     @BeforeEach
     void setup() {
-        bubbleSorter = new BubbleSorter();
-        mergeSorter = new MergeSorter();
+        SorterFactory sorterFactory = new SorterFactory();
+        bubbleSorter = sorterFactory.getSorter(SorterTypes.BUBBLE_SORT);
+        mergeSorter = sorterFactory.getSorter(SorterTypes.MERGE_SORT);
         smallSample = IntStream.generate(() -> new Random().nextInt(100)).limit(1000).toArray();
         mediumSample = IntStream.generate(() -> new Random().nextInt(100)).limit(10000).toArray();
         largeSample = IntStream.generate(() -> new Random().nextInt(100)).limit(100000).toArray();

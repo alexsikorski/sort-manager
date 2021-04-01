@@ -2,7 +2,9 @@ package com.sparta.alex;
 
 import com.sparta.alex.exceptions.ArrayTooSmallException;
 import com.sparta.alex.exceptions.EmptyArrayException;
-import com.sparta.alex.sorters.BubbleSorter;
+import com.sparta.alex.factory.SorterFactory;
+import com.sparta.alex.factory.SorterTypes;
+import com.sparta.alex.sorters.Sorter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -10,11 +12,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class BubbleSorterTests {
 
-    private BubbleSorter bubbleSorter = null;
+    private Sorter bubbleSorter = null;
 
     @BeforeEach
     void setup() {
-        bubbleSorter = new BubbleSorter();
+        SorterFactory sorterFactory = new SorterFactory();
+        bubbleSorter = sorterFactory.getSorter(SorterTypes.BUBBLE_SORT);
     }
 
     @Test

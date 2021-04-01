@@ -10,6 +10,15 @@ public class BubbleSorter implements Sorter {
 
     public static final Logger logger = LogManager.getLogger(Main.class);
 
+    private static final BubbleSorter bubbleSorterInstance = new BubbleSorter();
+
+    private BubbleSorter() {
+    }
+
+    public static Sorter getInstance() {
+        return bubbleSorterInstance;
+    }
+
     @Override
     public int[] sortArray(int[] array) throws EmptyArrayException, ArrayTooSmallException {
         if (array == null) {

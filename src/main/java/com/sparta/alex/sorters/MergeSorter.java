@@ -10,6 +10,15 @@ public class MergeSorter implements Sorter {
 
     public static final Logger logger = LogManager.getLogger(Main.class);
 
+    private static final MergeSorter mergeSorterInstance = new MergeSorter();
+
+    private MergeSorter() {
+    }
+
+    public static Sorter getInstance() {
+        return mergeSorterInstance;
+    }
+
     public static void mergeArray(int[] array, int[] leftArray, int[] rightArray, int leftPos, int rightPos) { // CALLED IN splitThenMerge
         // FIRST as splitThenMergeArray [1] [5] had been called first, return statement takes us to merge with these values
         // originalArray={1, 5, 10, 2}, leftArray=[1], rightArray=[5], leftPos=0/2=0, rightPos=1-0=1
