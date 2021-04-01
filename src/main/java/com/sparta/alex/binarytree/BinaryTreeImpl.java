@@ -10,10 +10,6 @@ public class BinaryTreeImpl implements BinaryTree {
         return rootNode;
     }
 
-    public int getElementCount() {
-        return elementCount;
-    }
-
     public Node addElementRecursive(Node currentNode, int value) {
         if (currentNode == null) {
             // if current node doesnt exist, make first value root node
@@ -52,6 +48,26 @@ public class BinaryTreeImpl implements BinaryTree {
 //        return findElementRecursive(currentNode.right, value);
     }
 
+    private Integer findLeftChildRecursive(Node currentNode, int value) {
+        if (currentNode == null) {
+            return null;
+        }
+        if (currentNode.value == value && currentNode.left != null) {
+            return currentNode.left.value;
+        }
+        return currentNode.value > value ? findLeftChildRecursive(currentNode.left, value) : findLeftChildRecursive(currentNode.right, value);
+    }
+
+    private Integer findRightChildRecursive(Node currentNode, int value) {
+        if (currentNode == null) {
+            return null;
+        }
+        if (currentNode.value == value && currentNode.right != null) {
+            return currentNode.right.value;
+        }
+        return currentNode.value > value ? findRightChildRecursive(currentNode.left, value) : findRightChildRecursive(currentNode.right, value);
+    }
+
     @Override
     public int getRootElement() {
         return rootNode.value;
@@ -59,7 +75,7 @@ public class BinaryTreeImpl implements BinaryTree {
 
     @Override
     public int getNumberOfElements() {
-        return 0;
+        return elementCount;
     }
 
     @Override
@@ -85,12 +101,20 @@ public class BinaryTreeImpl implements BinaryTree {
 
     @Override
     public int getLeftChild(int element) throws ChildNotFoundException {
-        return 0;
+        Integer integer = findLeftChildRecursive(rootNode, element);
+        if (integer == null) {
+            throw new ChildNotFoundException("Child not found!");
+        }
+        return integer;
     }
 
     @Override
     public int getRightChild(int element) throws ChildNotFoundException {
-        return 0;
+        Integer integer = findRightChildRecursive(rootNode, element);
+        if (integer == null) {
+            throw new ChildNotFoundException("Child not found!");
+        }
+        return integer;
     }
 
     @Override

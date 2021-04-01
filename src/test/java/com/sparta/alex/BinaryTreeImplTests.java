@@ -8,12 +8,22 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class BinaryTreeImplTests {
+
     private BinaryTreeImpl binaryTree = null;
 
     @BeforeEach
     void setup(){
         binaryTree = new BinaryTreeImpl();
         binaryTree.addElements(new int[]{5, 2, 1, 4, 3});
+
+        //                  5
+        //                 /
+        //                2
+        //               / \
+        //              1   4
+        //                 /
+        //                3
+
     }
 
     @Test
@@ -31,15 +41,15 @@ public class BinaryTreeImplTests {
     }
 
     @Test
-    void getNumberOfElements(){
-        assertEquals(5, binaryTree.getElementCount());
+    void getNumberOfElementsTest(){
+        assertEquals(5, binaryTree.getNumberOfElements());
     }
 
     @Test
     void addElementTest(){
         binaryTree.addElement(6);
         assertTrue(binaryTree.findElement(6));
-        assertEquals(6, binaryTree.getElementCount());
+        assertEquals(6, binaryTree.getNumberOfElements());
     }
 
     @Test
@@ -48,7 +58,7 @@ public class BinaryTreeImplTests {
         assertTrue(binaryTree.findElement(23));
         assertTrue(binaryTree.findElement(34));
         assertTrue(binaryTree.findElement(52));
-        assertEquals(8, binaryTree.getElementCount());
+        assertEquals(8, binaryTree.getNumberOfElements());
     }
 
     @Test
@@ -61,12 +71,17 @@ public class BinaryTreeImplTests {
 
     @Test
     void getLeftChildTest() throws ChildNotFoundException {
-        assertEquals(binaryTree.getRootNode().left, binaryTree.getLeftChild(2));
+        Exception exception = assertThrows(ChildNotFoundException.class, () -> binaryTree.getLeftChild(3));
+        assertEquals("Child not found!", exception.getMessage());
+        assertEquals(1, binaryTree.getLeftChild(2));
+
     }
 
     @Test
     void getRightChildTest() throws ChildNotFoundException {
-        assertEquals(binaryTree.getRootNode().right, binaryTree.getRightChild(4));
+        Exception exception = assertThrows(ChildNotFoundException.class, () -> binaryTree.getRightChild(5));
+        assertEquals("Child not found!", exception.getMessage());
+        assertEquals(4, binaryTree.getRightChild(2));
     }
 
     @Test
