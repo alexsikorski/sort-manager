@@ -1,4 +1,4 @@
-package com.sparta.alex.binarytree;
+package com.sparta.alex.sorters;
 
 import com.sparta.alex.exceptions.ChildNotFoundException;
 

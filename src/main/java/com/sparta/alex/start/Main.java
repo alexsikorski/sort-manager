@@ -15,8 +15,8 @@ public class Main {
 
         Printer printer = new Printer();
         SorterFactory sorterFactory = new SorterFactory();
-        Sorter bubbleSorter = sorterFactory.getSorter(SorterTypes.BUBBLE_SORT);
-        Sorter mergeSorter = sorterFactory.getSorter(SorterTypes.MERGE_SORT);
+        Sorter bubbleSorter = sorterFactory.getSorter(SorterTypes.BUBBLE_SORTER);
+        Sorter mergeSorter = sorterFactory.getSorter(SorterTypes.MERGE_SORTER);
 
         int[] testArray = new int[]{2, 5, 1, 4, 3};
 

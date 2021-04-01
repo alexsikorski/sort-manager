@@ -10,13 +10,13 @@ public class BubbleSorter implements Sorter {
 
     public static final Logger logger = LogManager.getLogger(Main.class);
 
-    private static final BubbleSorter bubbleSorterInstance = new BubbleSorter();
+    private static final BubbleSorter BUBBLE_SORTER_INSTANCE = new BubbleSorter();
 
     private BubbleSorter() {
     }
 
     public static Sorter getInstance() {
-        return bubbleSorterInstance;
+        return BUBBLE_SORTER_INSTANCE;
     }
 
     @Override

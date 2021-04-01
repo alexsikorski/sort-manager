@@ -10,13 +10,13 @@ public class MergeSorter implements Sorter {
 
     public static final Logger logger = LogManager.getLogger(Main.class);
 
-    private static final MergeSorter mergeSorterInstance = new MergeSorter();
+    private static final MergeSorter MERGE_SORTER_INSTANCE = new MergeSorter();
 
     private MergeSorter() {
     }
 
     public static Sorter getInstance() {
-        return mergeSorterInstance;
+        return MERGE_SORTER_INSTANCE;
     }
 
     public static void mergeArray(int[] array, int[] leftArray, int[] rightArray, int leftPos, int rightPos) { // CALLED IN splitThenMerge

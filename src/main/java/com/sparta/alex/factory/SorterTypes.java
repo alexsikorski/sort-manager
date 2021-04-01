@@ -1,6 +1,7 @@
 package com.sparta.alex.factory;
 
 public enum SorterTypes {
-    BUBBLE_SORT,
-    MERGE_SORT
+    BUBBLE_SORTER,
+    MERGE_SORTER,
+    BINARY_TREE_SORTER
 }
