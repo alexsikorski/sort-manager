@@ -1,4 +1,4 @@
-package com.sparta.alex.sorters;
+package com.sparta.alex.binarytree;
 
 import com.sparta.alex.exceptions.ChildNotFoundException;
 
@@ -7,7 +7,7 @@ public interface BinaryTree {
 
     int getNumberOfElements();
 
-    void addElement(int element);
+    Node addElement(Node currentNode, int element);
 
     void addElements(int[] elements);
 

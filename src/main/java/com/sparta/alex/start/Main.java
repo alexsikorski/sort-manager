@@ -17,10 +17,12 @@ public class Main {
         SorterFactory sorterFactory = new SorterFactory();
         Sorter bubbleSorter = sorterFactory.getSorter(SorterTypes.BUBBLE_SORTER);
         Sorter mergeSorter = sorterFactory.getSorter(SorterTypes.MERGE_SORTER);
+        Sorter binaryTreeSorter = sorterFactory.getSorter(SorterTypes.BINARY_TREE_SORTER);
 
         int[] testArray = new int[]{2, 5, 1, 4, 3};
 
         printer.print("Bubble sort: " + Arrays.toString(bubbleSorter.sortArray(testArray)));
         printer.print("Merge sort: " + Arrays.toString(mergeSorter.sortArray(testArray)));
+        printer.print("Binary Tree sort: " + Arrays.toString(binaryTreeSorter.sortArray(testArray)));
     }
 }
