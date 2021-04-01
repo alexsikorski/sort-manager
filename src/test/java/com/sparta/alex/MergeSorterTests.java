@@ -17,7 +17,7 @@ public class MergeSorterTests {
     @BeforeEach
     void setup() {
         SorterFactory sorterFactory = new SorterFactory();
-        mergeSorter = sorterFactory.getSorter(SorterTypes.BUBBLE_SORT);
+        mergeSorter = sorterFactory.getSorter(SorterTypes.BUBBLE_SORTER);
     }
 
     @Test

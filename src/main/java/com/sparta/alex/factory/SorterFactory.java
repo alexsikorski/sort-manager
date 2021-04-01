@@ -1,6 +1,6 @@
 package com.sparta.alex.factory;
 
-import com.sparta.alex.sorters.BinaryTreeSort;
+import com.sparta.alex.sorters.BinaryTreeSorter;
 import com.sparta.alex.sorters.BubbleSorter;
 import com.sparta.alex.sorters.MergeSorter;
 import com.sparta.alex.sorters.Sorter;
@@ -17,7 +17,7 @@ public class SorterFactory {
                 sorter = MergeSorter.getInstance();
                 break;
             case BINARY_TREE_SORTER:
-                sorter = BinaryTreeSort.getInstance();
+                sorter = BinaryTreeSorter.getInstance();
                 break;
             default:
                 break;

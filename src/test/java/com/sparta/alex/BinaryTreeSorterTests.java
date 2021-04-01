@@ -10,36 +10,35 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class BubbleSorterTests {
-
-    private Sorter bubbleSorter = null;
+public class BinaryTreeSorterTests {
+    private Sorter binaryTreeSorter = null;
 
     @BeforeEach
     void setup() {
         SorterFactory sorterFactory = new SorterFactory();
-        bubbleSorter = sorterFactory.getSorter(SorterTypes.BUBBLE_SORTER);
+        binaryTreeSorter = sorterFactory.getSorter(SorterTypes.BINARY_TREE_SORTER);
     }
 
     @Test
     void sortTest() throws EmptyArrayException, ArrayTooSmallException {
-        assertArrayEquals(new int[]{1, 2, 3, 4, 5}, bubbleSorter.sortArray(new int[]{5, 2, 1, 4, 3}));
+        assertArrayEquals(new int[]{1, 2, 3, 4, 5}, binaryTreeSorter.sortArray(new int[]{5, 2, 1, 4, 3}));
     }
 
     @Test
     void nullTest() {
-        Exception exception = assertThrows(NullPointerException.class, () -> bubbleSorter.sortArray(null));
+        Exception exception = assertThrows(NullPointerException.class, () -> binaryTreeSorter.sortArray(null));
         assertEquals("Array is null!", exception.getMessage());
     }
 
     @Test
     void emptyArrayTest() {
-        Exception exception = assertThrows(EmptyArrayException.class, () -> bubbleSorter.sortArray(new int[]{}));
+        Exception exception = assertThrows(EmptyArrayException.class, () -> binaryTreeSorter.sortArray(new int[]{}));
         assertEquals("Empty array!", exception.getMessage());
     }
 
     @Test
     void shortArrayTest() {
-        Exception exception = assertThrows(ArrayTooSmallException.class, () -> bubbleSorter.sortArray(new int[]{1}));
+        Exception exception = assertThrows(ArrayTooSmallException.class, () -> binaryTreeSorter.sortArray(new int[]{1}));
         assertEquals("Array must be larger than one!", exception.getMessage());
     }
 }

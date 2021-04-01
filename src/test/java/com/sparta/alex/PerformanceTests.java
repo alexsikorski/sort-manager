@@ -17,6 +17,7 @@ public class PerformanceTests {
 
     private Sorter bubbleSorter = null;
     private Sorter mergeSorter = null;
+    private Sorter binaryTreeSorter = null;
     private int[] smallSample = null;
     private int[] mediumSample = null;
     private int[] largeSample = null;
@@ -25,8 +26,9 @@ public class PerformanceTests {
     @BeforeEach
     void setup() {
         SorterFactory sorterFactory = new SorterFactory();
-        bubbleSorter = sorterFactory.getSorter(SorterTypes.BUBBLE_SORT);
-        mergeSorter = sorterFactory.getSorter(SorterTypes.MERGE_SORT);
+        bubbleSorter = sorterFactory.getSorter(SorterTypes.BUBBLE_SORTER);
+        mergeSorter = sorterFactory.getSorter(SorterTypes.MERGE_SORTER);
+        binaryTreeSorter = sorterFactory.getSorter(SorterTypes.BINARY_TREE_SORTER);
         smallSample = IntStream.generate(() -> new Random().nextInt(100)).limit(1000).toArray();
         mediumSample = IntStream.generate(() -> new Random().nextInt(100)).limit(10000).toArray();
         largeSample = IntStream.generate(() -> new Random().nextInt(100)).limit(100000).toArray();
@@ -84,6 +86,33 @@ public class PerformanceTests {
         long end = System.nanoTime();
         float timeTaken = (end - start) / 1000000000f;
         System.out.println(mergeSorter.getClass().getName() + " || LARGE SAMPLE || time taken: " + timeTaken + "s.");
+    }
+
+    @Test
+    void binaryTreeSortSmallSample() throws ArrayTooSmallException, EmptyArrayException {
+        long start = System.nanoTime();
+        assertEquals(1000, binaryTreeSorter.sortArray(smallSample).length);
+        long end = System.nanoTime();
+        float timeTaken = (end - start) / 1000000000f;
+        System.out.println(binaryTreeSorter.getClass().getName() + " || SMALL SAMPLE || time taken: " + timeTaken + "s.");
+    }
+
+    @Test
+    void binaryTreeSortMediumSample() throws ArrayTooSmallException, EmptyArrayException {
+        long start = System.nanoTime();
+        assertEquals(10000, binaryTreeSorter.sortArray(mediumSample).length);
+        long end = System.nanoTime();
+        float timeTaken = (end - start) / 1000000000f;
+        System.out.println(binaryTreeSorter.getClass().getName() + " || MEDIUM SAMPLE || time taken: " + timeTaken + "s.");
+    }
+
+    @Test
+    void binaryTreeLargeSample() throws ArrayTooSmallException, EmptyArrayException {
+        long start = System.nanoTime();
+        assertEquals(100000, binaryTreeSorter.sortArray(largeSample).length);
+        long end = System.nanoTime();
+        float timeTaken = (end - start) / 1000000000f;
+        System.out.println(binaryTreeSorter.getClass().getName() + " || LARGE SAMPLE || time taken: " + timeTaken + "s.");
     }
 
 }
