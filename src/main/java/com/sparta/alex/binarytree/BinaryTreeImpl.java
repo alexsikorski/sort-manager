@@ -4,60 +4,17 @@ import com.sparta.alex.exceptions.ChildNotFoundException;
 
 public class BinaryTreeImpl implements BinaryTree {
     Node rootNode = null;
+    int elementCount = 0;
 
-    @Override
-    public int getRootElement() {
-        return rootNode.value;
+    public Node getRootNode() {
+        return rootNode;
     }
 
-    @Override
-    public int getNumberOfElements() {
-        return 0;
+    public int getElementCount() {
+        return elementCount;
     }
-
-    @Override
-    public void addElement(int element) {
-        rootNode = addElementRecursive(rootNode, element);
-    }
-
-    @Override
-    public void addElements(int[] elements) {
-        for (int element : elements) {
-            // start at root node
-            rootNode = addElementRecursive(rootNode, element);
-        }
-    }
-
-    @Override
-    public boolean findElement(int value) {
-        // start at root node
-        return findElementRecursive(rootNode, value);
-    }
-
-    @Override
-    public int getLeftChild(int element) throws ChildNotFoundException {
-        return 0;
-    }
-
-    @Override
-    public int getRightChild(int element) throws ChildNotFoundException {
-        return 0;
-    }
-
-    @Override
-    public int[] getSortedTreeAsc() {
-        return new int[0];
-    }
-
-    @Override
-    public int[] getSortedTreeDesc() {
-        return new int[0];
-    }
-
-    // recursive methods
 
     public Node addElementRecursive(Node currentNode, int value) {
-        // recursive method
         if (currentNode == null) {
             // if current node doesnt exist, make first value root node
             return new Node(value);
@@ -95,6 +52,59 @@ public class BinaryTreeImpl implements BinaryTree {
 //        return findElementRecursive(currentNode.right, value);
     }
 
+    @Override
+    public int getRootElement() {
+        return rootNode.value;
+    }
+
+    @Override
+    public int getNumberOfElements() {
+        return 0;
+    }
+
+    @Override
+    public void addElement(int element) {
+        rootNode = addElementRecursive(rootNode, element);
+        elementCount++;
+    }
+
+    @Override
+    public void addElements(int[] elements) {
+        for (int element : elements) {
+            // start at root node
+            rootNode = addElementRecursive(rootNode, element);
+            elementCount++;
+        }
+    }
+
+    @Override
+    public boolean findElement(int value) {
+        // start at root node
+        return findElementRecursive(rootNode, value);
+    }
+
+    @Override
+    public int getLeftChild(int element) throws ChildNotFoundException {
+        return 0;
+    }
+
+    @Override
+    public int getRightChild(int element) throws ChildNotFoundException {
+        return 0;
+    }
+
+    @Override
+    public int[] getSortedTreeAsc() {
+        return new int[0];
+    }
+
+    @Override
+    public int[] getSortedTreeDesc() {
+        return new int[0];
+    }
+
+
+    // inner Node class
     public class Node {
         public int value;
         public Node left;
