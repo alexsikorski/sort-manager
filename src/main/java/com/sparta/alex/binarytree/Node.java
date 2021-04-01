@@ -1,11 +1,11 @@
 package com.sparta.alex.binarytree;
 
-public class Node{
+public class Node {
     public int value;
     public Node left;
     public Node right;
 
-    public Node(int value){
+    public Node(int value) {
         this.value = value;
         left = null;
         right = null;

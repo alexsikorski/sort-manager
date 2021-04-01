@@ -7,7 +7,7 @@ public interface BinaryTree {
 
     int getNumberOfElements();
 
-    Node addElement(Node currentNode, int element);
+    void addElement(int element);
 
     void addElements(int[] elements);
 
