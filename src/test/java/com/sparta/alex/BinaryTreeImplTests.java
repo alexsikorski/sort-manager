@@ -91,6 +91,6 @@ public class BinaryTreeImplTests {
 
     @Test
     void getSortedTreeDescTest(){
-        assertArrayEquals(new int[]{5, 4, 3, 2, 1}, binaryTree.getSortedTreeAsc());
+        assertArrayEquals(new int[]{5, 4, 3, 2, 1}, binaryTree.getSortedTreeDesc());
     }
 }

@@ -6,11 +6,13 @@ public class BinaryTreeImpl implements BinaryTree {
     Node rootNode = null;
     int elementCount = 0;
 
-    public Node getRootNode() {
-        return rootNode;
-    }
+    int ascendingElementCount = 0;
+    int[] ascendingArray;
 
-    public Node addElementRecursive(Node currentNode, int value) {
+    int descendingElementCount = 0;
+    int[] descendingArray;
+
+    private Node addElementRecursive(Node currentNode, int value) {
         if (currentNode == null) {
             // if current node doesnt exist, make first value root node
             return new Node(value);
@@ -68,6 +70,28 @@ public class BinaryTreeImpl implements BinaryTree {
         return currentNode.value > value ? findRightChildRecursive(currentNode.left, value) : findRightChildRecursive(currentNode.right, value);
     }
 
+    private void ascRecursive(Node node){
+        if (node != null){
+            // if node exists
+            ascRecursive(node.left);
+            // traverse left sub tree first
+            ascendingArray[ascendingElementCount] = node.value;
+            ascendingElementCount++;
+            ascRecursive(node.right);
+        }
+    }
+
+    private void dscRecursive(Node node) {
+        if (node != null){
+            // if node exists
+            dscRecursive(node.right);
+            // traverse left right tree first
+            descendingArray[descendingElementCount] = node.value;
+            descendingElementCount++;
+            dscRecursive(node.left);
+        }
+    }
+
     @Override
     public int getRootElement() {
         return rootNode.value;
@@ -119,14 +143,20 @@ public class BinaryTreeImpl implements BinaryTree {
 
     @Override
     public int[] getSortedTreeAsc() {
-        return new int[0];
+        // depth-first- search, in-order traversal
+        ascendingArray = new int[getNumberOfElements()]; // new array with copied size
+        ascendingElementCount = 0; // reset count for future method calling
+        ascRecursive(rootNode); // start recursive method
+        return ascendingArray;
     }
 
     @Override
     public int[] getSortedTreeDesc() {
-        return new int[0];
+        descendingArray = new int[getNumberOfElements()];
+        descendingElementCount = 0;
+        dscRecursive(rootNode);
+        return descendingArray;
     }
-
 
     // inner Node class
     public class Node {
