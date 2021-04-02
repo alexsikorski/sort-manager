@@ -12,7 +12,7 @@ public class BinaryTreeImplTests {
     private BinaryTreeImpl binaryTree = null;
 
     @BeforeEach
-    void setup(){
+    void setup() {
         binaryTree = new BinaryTreeImpl();
         binaryTree.addElements(new int[]{5, 2, 1, 4, 3});
 
@@ -27,7 +27,7 @@ public class BinaryTreeImplTests {
     }
 
     @Test
-    void treeContainElementsTest(){
+    void treeContainElementsTest() {
         assertTrue(binaryTree.findElement(5));
         assertTrue(binaryTree.findElement(2));
         assertTrue(binaryTree.findElement(1));
@@ -36,24 +36,24 @@ public class BinaryTreeImplTests {
     }
 
     @Test
-    void getRootElementTest(){
+    void getRootElementTest() {
         assertEquals(5, binaryTree.getRootElement());
     }
 
     @Test
-    void getNumberOfElementsTest(){
+    void getNumberOfElementsTest() {
         assertEquals(5, binaryTree.getNumberOfElements());
     }
 
     @Test
-    void addElementTest(){
+    void addElementTest() {
         binaryTree.addElement(6);
         assertTrue(binaryTree.findElement(6));
         assertEquals(6, binaryTree.getNumberOfElements());
     }
 
     @Test
-    void addElementsTest(){
+    void addElementsTest() {
         binaryTree.addElements(new int[]{23, 34, 52});
         assertTrue(binaryTree.findElement(23));
         assertTrue(binaryTree.findElement(34));
@@ -62,7 +62,7 @@ public class BinaryTreeImplTests {
     }
 
     @Test
-    void findElementTest(){
+    void findElementTest() {
         assertTrue(binaryTree.findElement(5));
         assertFalse(binaryTree.findElement(117));
         binaryTree.addElement(117);
@@ -85,12 +85,12 @@ public class BinaryTreeImplTests {
     }
 
     @Test
-    void getSortedTreeAscTest(){
+    void getSortedTreeAscTest() {
         assertArrayEquals(new int[]{1, 2, 3, 4, 5}, binaryTree.getSortedTreeAsc());
     }
 
     @Test
-    void getSortedTreeDescTest(){
+    void getSortedTreeDescTest() {
         assertArrayEquals(new int[]{5, 4, 3, 2, 1}, binaryTree.getSortedTreeDesc());
     }
 }

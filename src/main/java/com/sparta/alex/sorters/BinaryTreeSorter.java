@@ -32,14 +32,9 @@ public class BinaryTreeSorter implements Sorter {
             logger.error("ArrayTooSmallException: Array must be larger than one!");
             throw new ArrayTooSmallException("Array must be larger than one!");
         } else {
-            // TODO sorter code
             BinaryTreeImpl binaryTree = new BinaryTreeImpl();
-
             binaryTree.addElements(array);
-
-            System.out.println(binaryTree.getRootElement());
-
+            return binaryTree.getSortedTreeAsc();
         }
-        return new int[0];
     }
 }

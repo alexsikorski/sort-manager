@@ -70,8 +70,8 @@ public class BinaryTreeImpl implements BinaryTree {
         return currentNode.value > value ? findRightChildRecursive(currentNode.left, value) : findRightChildRecursive(currentNode.right, value);
     }
 
-    private void ascRecursive(Node node){
-        if (node != null){
+    private void ascRecursive(Node node) {
+        if (node != null) {
             // if node exists
             ascRecursive(node.left);
             // traverse left sub tree first
@@ -82,7 +82,7 @@ public class BinaryTreeImpl implements BinaryTree {
     }
 
     private void dscRecursive(Node node) {
-        if (node != null){
+        if (node != null) {
             // if node exists
             dscRecursive(node.right);
             // traverse left right tree first
