@@ -31,6 +31,7 @@ public class BubbleSorter implements Sorter {
             logger.error("ArrayTooSmallException: Array must be larger than one!");
             throw new ArrayTooSmallException("Array must be larger than one!");
         } else {
+            logger.trace("Using the Bubble Sort algorithm...");
             for (int j = 0; j < array.length - 1; j++) {
                 boolean hasSwapped = false;
                 for (int i = 0; i < array.length - 1 - j; i++) {

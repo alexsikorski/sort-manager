@@ -56,6 +56,7 @@ public class MergeSorter implements Sorter {
             logger.error("ArrayTooSmallException: Array must be larger than one!");
             throw new ArrayTooSmallException("Array must be larger than one!");
         } else {
+            logger.trace("Using the Merge Sort algorithm...");
             splitThenMergeArray(array, array.length);
             return array;
         }
