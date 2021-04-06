@@ -6,9 +6,7 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
-import java.util.Random;
-
+import static com.sparta.alex.util.ArraySampleGenerator.uniqueIntegerArray;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BinaryTreeImplPerformanceTests {
@@ -32,47 +30,21 @@ public class BinaryTreeImplPerformanceTests {
         binaryTreeMedium = new BinaryTreeImpl();
         binaryTreeLarge = new BinaryTreeImpl();
 
-        binaryTreeSmall.addElements(uniqueIntegerArray("small"));
-        binaryTreeMedium.addElements(uniqueIntegerArray("medium"));
-        binaryTreeLarge.addElements(uniqueIntegerArray("large"));
+        binaryTreeSmall.addElements(uniqueIntegerArray(SMALL));
+        binaryTreeMedium.addElements(uniqueIntegerArray(MEDIUM));
+        binaryTreeLarge.addElements(uniqueIntegerArray(LARGE));
     }
 
     @AfterAll
     static void printResults() {
         Printer printer = new Printer();
-        printer.print(resultAscS);
+        printer.print("-- BinarySorter with elements already added --\n" + resultAscS);
         printer.print(resultAscM);
         printer.print(resultAscL + "\n");
         printer.print(resultDescS);
         printer.print(resultDescM);
-        printer.print(resultDescL);
+        printer.print(resultDescL + "\n");
 
-    }
-
-    private static int[] uniqueIntegerArray(String sampleSize) {
-        // array to be used with binary tree must have unique integers
-        HashSet<Integer> set = new HashSet<>();
-        switch (sampleSize) {
-            case "small":
-                do {
-                    set.add(new Random().nextInt(SMALL));
-                }
-                while (set.size() < SMALL);
-                break;
-            case "medium":
-                do {
-                    set.add(new Random().nextInt(MEDIUM));
-                }
-                while (set.size() < MEDIUM);
-                break;
-            case "large":
-                do {
-                    set.add(new Random().nextInt(LARGE));
-                }
-                while (set.size() < LARGE);
-                break;
-        }
-        return set.stream().mapToInt(Integer::intValue).toArray();
     }
 
     // ASC
