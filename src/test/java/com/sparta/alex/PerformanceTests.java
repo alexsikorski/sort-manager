@@ -5,6 +5,7 @@ import com.sparta.alex.exceptions.EmptyArrayException;
 import com.sparta.alex.factory.SorterFactory;
 import com.sparta.alex.factory.SorterTypes;
 import com.sparta.alex.sorters.Sorter;
+import com.sparta.alex.util.ArraySampleGenerator;
 import com.sparta.alex.util.Printer;
 import com.sparta.alex.util.TestTimer;
 import org.junit.jupiter.api.AfterAll;
@@ -70,9 +71,10 @@ public class PerformanceTests {
         mergeSorter = sorterFactory.getSorter(SorterTypes.MERGE_SORTER);
         binaryTreeSorter = sorterFactory.getSorter(SorterTypes.BINARY_TREE_SORTER);
 
-        smallSample = IntStream.generate(() -> new Random().nextInt(SMALL)).limit(SMALL).toArray();
-        mediumSample = IntStream.generate(() -> new Random().nextInt(MEDIUM)).limit(MEDIUM).toArray();
-        largeSample = IntStream.generate(() -> new Random().nextInt(LARGE)).limit(LARGE).toArray();
+        ArraySampleGenerator arraySampleGenerator = new ArraySampleGenerator();
+        smallSample = arraySampleGenerator.integerArray(SMALL);
+        mediumSample = arraySampleGenerator.integerArray(MEDIUM);
+        largeSample = arraySampleGenerator.integerArray(LARGE);
     }
 
     // Bubble Sorter Tests
