@@ -29,9 +29,7 @@ software. Have experimented with logging using Log4j.
 
 ## Approach
 
-JUnit has been utilised later in the project after being introduced during training. Once added to the project, a **
-Test-Driven Development** approach had been used to develop the Binary Tree implementation. This is displayed in the
-unit tests within the project.
+JUnit has been utilised later in the project after being introduced during training. Once added to the project, a **Test-Driven Development** approach had been used to develop the Binary Tree implementation. This is displayed in the unit tests within the project.
 
 ## Author
 
