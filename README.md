@@ -5,27 +5,34 @@ Sort Manager Java project complete at Sparta Global.
 ## About
 
 Java 11 project completed during training; task assigned had been to implement different algorithms with a singleton
-design pattern. Used Maven to handle dependencies such as JUnit that has been used to test functionality of programmed
+and factory design pattern. Used Maven to handle dependencies such as JUnit that has been used to test functionality of programmed
 software. Have experimented with logging using Log4j.
 
-## Algorithms Covered
+## Tools used
+- JDK 11
+- IntelliJ
+- JUnit 5
+- Log4J
+- Git
 
+## Algorithms Covered
 - Bubble Sort (Iterative)
 - Merge Sort (Recursive)
 - Binary Tree (Recursive)
 
-## Java Topics
-
+## Topics Used in Project Functionality
+- OOP principles
+- SOLID principles
+- Logging
+- Creation patterns
+- Unit Testing
+- Performance Testing with different loads
+- Defined Packages
 - Iterations
 - Recursions
-- Encapsulation
-- Inheritance
-- Abstraction
-- Polymorphism
-- Inner Classes
 - Nested Classes
 - Enums
-- Custom Exceptions
+- Predefined and Custom Exceptions
 
 ## Approach
 
@@ -34,3 +41,4 @@ JUnit has been utilised later in the project after being introduced during train
 ## Author
 
 Alex Sikorski
+
